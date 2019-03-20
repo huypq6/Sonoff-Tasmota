@@ -47,7 +47,7 @@ void KNX_CB_Action(message_t const &msg, void *arg);
 \*********************************************************************************************/
 
 #ifndef MODULE
-#define MODULE                 SONOFF_BASIC   // [Module] Select default model
+#define MODULE                 SONOFF_T11   // [Module] Select default model
 #endif
 
 /*********************************************************************************************\

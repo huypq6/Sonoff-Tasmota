@@ -23,8 +23,8 @@
 #define VERSION            0x06050001
 
 #define D_PROGRAMNAME      "Sonoff-Tasmota"
-#define D_AUTHOR           "Theo Arends"
+#define D_AUTHOR           "Theo Arends powered by ismarthome.vn"
 //#define D_WEBLINK          "https://github.com/arendst/Sonoff-Tasmota"
-#define D_WEBLINK          "https://bit.ly/tasmota"
+#define D_WEBLINK          "http://ismarthome.vn/"
 
 #endif  // _SONOFF_VERSION_H_

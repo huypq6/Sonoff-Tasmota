@@ -319,7 +319,8 @@ enum SupportedModules {
   MAXMODULE };
 
 #define USER_MODULE        255
-
+#define DEFAULT_MODULE     SONOFF_T11
+// #define MODULE             SONOFF_T12   // [Module] Select default model
 /********************************************************************************************/
 
 #define MAX_GPIO_PIN       17   // Number of supported GPIO

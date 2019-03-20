@@ -469,19 +469,19 @@ void StartWebserver(int type, IPAddress ipweb)
       WebServer->on("/u1", HandleUpgradeFirmwareStart);  // OTA
       WebServer->on("/u2", HTTP_POST, HandleUploadDone, HandleUploadLoop);
       WebServer->on("/u2", HTTP_OPTIONS, HandlePreflightRequest);
-      WebServer->on("/cs", HandleConsole);
+      // WebServer->on("/cs", HandleConsole);
       WebServer->on("/cm", HandleHttpCommand);
 #ifndef FIRMWARE_MINIMAL
-      WebServer->on("/cn", HandleConfiguration);
-      WebServer->on("/md", HandleModuleConfiguration);
-      WebServer->on("/wi", HandleWifiConfiguration);
-      WebServer->on("/lg", HandleLoggingConfiguration);
-      WebServer->on("/tp", HandleTemplateConfiguration);
-      WebServer->on("/co", HandleOtherConfiguration);
-      WebServer->on("/dl", HandleBackupConfiguration);
-      WebServer->on("/rs", HandleRestoreConfiguration);
+       WebServer->on("/cn", HandleConfiguration);
+       WebServer->on("/md", HandleModuleConfiguration);
+       WebServer->on("/wi", HandleWifiConfiguration);
+      //  WebServer->on("/lg", HandleLoggingConfiguration);
+      //  WebServer->on("/tp", HandleTemplateConfiguration);
+      //  WebServer->on("/co", HandleOtherConfiguration);
+       WebServer->on("/dl", HandleBackupConfiguration);
+       WebServer->on("/rs", HandleRestoreConfiguration);
       WebServer->on("/rt", HandleResetConfiguration);
-      WebServer->on("/in", HandleInformation);
+      // WebServer->on("/in", HandleInformation);
 #ifdef USE_EMULATION
       HueWemoAddHandlers();
 #endif  // USE_EMULATION
@@ -910,6 +910,7 @@ void HandleRoot(void)
 #ifdef FIRMWARE_MINIMAL
     WSContentSpaceButton(BUTTON_FIRMWARE_UPGRADE);
 #else
+    // huy fixed: disable BUTTON CONFIGURATION
     WSContentSpaceButton(BUTTON_CONFIGURATION);
     WSContentButton(BUTTON_INFORMATION);
     WSContentButton(BUTTON_FIRMWARE_UPGRADE);
@@ -1004,15 +1005,15 @@ void HandleConfiguration(void)
   WSContentStart_P(S_CONFIGURATION);
   WSContentSendStyle();
 
-  WSContentButton(BUTTON_MODULE);
-  WSContentButton(BUTTON_WIFI);
+  // WSContentButton(BUTTON_MODULE);
+  // WSContentButton(BUTTON_WIFI);
 
   XdrvCall(FUNC_WEB_ADD_BUTTON);
-  XsnsCall(FUNC_WEB_ADD_BUTTON);
+  // XsnsCall(FUNC_WEB_ADD_BUTTON);
 
-  WSContentButton(BUTTON_LOGGING);
-  WSContentButton(BUTTON_OTHER);
-  WSContentButton(BUTTON_TEMPLATE);
+  // WSContentButton(BUTTON_LOGGING);
+  // WSContentButton(BUTTON_OTHER);
+  // WSContentButton(BUTTON_TEMPLATE);
 
   WSContentSpaceButton(BUTTON_RESET_CONFIGURATION);
   WSContentButton(BUTTON_BACKUP);
@@ -1166,7 +1167,7 @@ void HandleModuleConfiguration(void)
       } else {
         midx = pgm_read_byte(kModuleNiceList + i -1);
         vidx = midx +1;
-      }
+      }https://bit.ly/tasmota
       WSContentSend_P(HTTP_MODULE_TEMPLATE_REPLACE, midx, AnyModuleName(midx).c_str(), vidx);
     }
     WSContentEnd();

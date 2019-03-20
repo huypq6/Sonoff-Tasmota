@@ -47,7 +47,7 @@
 #define CFG_HOLDER             4617              // [Reset 1] Change this value (max 32000) to load SECTION1 configuration parameters to flash
 
 // -- Project -------------------------------------
-#define PROJECT                "sonoff"          // PROJECT is used as the default topic delimiter
+#define PROJECT                "iSmartHome"          // PROJECT is used as the default topic delimiter
 
 // If not selected the default will be SONOFF_BASIC
 //#define MODULE                 SONOFF_BASIC      // [Module] Select default model from sonoff_template.h
@@ -233,10 +233,11 @@
 // -- MQTT ----------------------------------------
 #define MQTT_TELE_RETAIN     0                   // Tele messages may send retain flag (0 = off, 1 = on)
 
+// huypq fixed: Disable Domoticz
 // -- MQTT - Domoticz -----------------------------
-#define USE_DOMOTICZ                             // Enable Domoticz (+6k code, +0.3k mem)
-  #define DOMOTICZ_IN_TOPIC    "domoticz/in"     // Domoticz Input Topic
-  #define DOMOTICZ_OUT_TOPIC   "domoticz/out"    // Domoticz Output Topic
+//#define USE_DOMOTICZ                             // Enable Domoticz (+6k code, +0.3k mem)
+//  #define DOMOTICZ_IN_TOPIC    "domoticz/in"     // Domoticz Input Topic
+//  #define DOMOTICZ_OUT_TOPIC   "domoticz/out"    // Domoticz Output Topic
 
 // -- MQTT - Home Assistant Discovery -------------
 #define USE_HOME_ASSISTANT                       // Enable Home Assistant Discovery Support (+7k code)
@@ -262,11 +263,12 @@
   #define WEBSERVER_ADVERTISE                    // Provide access to webserver by name <Hostname>.local/
   #define MQTT_HOST_DISCOVERY                    // Find MQTT host server (overrides MQTT_HOST if found)
 
+// huypq fixed: Disable timer
 // -- Time ----------------------------------------
-#define USE_TIMERS                               // Add support for up to 16 timers (+2k2 code)
-  #define USE_TIMERS_WEB                         // Add timer webpage support (+4k5 code)
-  #define USE_SUNRISE                            // Add support for Sunrise and sunset tools (+16k)
-    #define SUNRISE_DAWN_ANGLE DAWN_NORMAL       // Select desired Dawn Angle from (DAWN_NORMAL, DAWN_CIVIL, DAWN_NAUTIC, DAWN_ASTRONOMIC)
+//#define USE_TIMERS                               // Add support for up to 16 timers (+2k2 code)
+//  #define USE_TIMERS_WEB                         // Add timer webpage support (+4k5 code)
+//  #define USE_SUNRISE                            // Add support for Sunrise and sunset tools (+16k)
+//    #define SUNRISE_DAWN_ANGLE DAWN_NORMAL       // Select desired Dawn Angle from (DAWN_NORMAL, DAWN_CIVIL, DAWN_NAUTIC, DAWN_ASTRONOMIC)
 
 // -- Rules ---------------------------------------
 #define USE_RULES                                // Add support for rules (+4k4 code)
